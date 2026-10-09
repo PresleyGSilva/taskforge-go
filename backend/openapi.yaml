@@ -1,0 +1,87 @@
+openapi: 3.0.3
+info:
+  title: TaskForge API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8083/api/v1
+paths:
+  /healthz:
+    get:
+      summary: Health check
+      responses:
+        '200': { description: OK }
+  /auth/register:
+    post:
+      summary: Register
+      responses:
+        '200': { description: OK }
+  /auth/login:
+    post:
+      summary: Login
+      responses:
+        '200': { description: OK }
+  /auth/refresh:
+    post:
+      summary: Refresh access token (httpOnly cookie)
+      responses:
+        '200': { description: OK }
+  /auth/logout:
+    post:
+      summary: Logout
+      responses:
+        '200': { description: OK }
+  /workspaces:
+    get:
+      summary: List workspaces
+      responses: { '200': { description: OK } }
+    post:
+      summary: Create workspace
+      responses: { '201': { description: Created } }
+  /workspaces/{id}:
+    get:
+      summary: Get workspace
+      responses: { '200': { description: OK } }
+    patch:
+      summary: Update workspace
+      responses: { '200': { description: OK } }
+    delete:
+      summary: Delete workspace
+      responses: { '200': { description: OK } }
+  /projects:
+    get:
+      summary: List projects
+      responses: { '200': { description: OK } }
+    post:
+      summary: Create project
+      responses: { '201': { description: Created } }
+  /tasks:
+    get:
+      summary: List tasks
+      responses: { '200': { description: OK } }
+    post:
+      summary: Create task
+      responses: { '201': { description: Created } }
+  /tasks/{id}:
+    get:
+      summary: Get task
+      responses: { '200': { description: OK } }
+    patch:
+      summary: Patch task (requires version, 409 on mismatch)
+      responses:
+        '200': { description: OK }
+        '409': { description: Version conflict }
+    delete:
+      summary: Delete task
+      responses: { '200': { description: OK } }
+  /dashboard:
+    get:
+      summary: Workspace dashboard
+      responses: { '200': { description: OK } }
+  /search:
+    get:
+      summary: Search tasks
+      responses: { '200': { description: OK } }
+  /ws:
+    get:
+      summary: Authenticated websocket (query workspace=<id>, Bearer or ?token=)
+      responses: { '101': { description: Switching protocols } }

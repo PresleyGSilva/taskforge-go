@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+body { @apply bg-zinc-950 text-zinc-100; }
+input, select, textarea { @apply bg-zinc-900 border border-zinc-700 rounded px-3 py-2 text-sm w-full; }
+button.btn { @apply bg-brand hover:bg-brand-dark text-white rounded px-4 py-2 text-sm font-medium; }
+button.btn-ghost { @apply border border-zinc-700 rounded px-3 py-1.5 text-sm hover:border-brand; }
+.card { @apply bg-zinc-900 border border-zinc-800 rounded-lg p-4; }
